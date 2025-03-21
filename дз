@@ -1,0 +1,161 @@
+Циклы
+Теоретические вопросы
+Вопрос 1
+Сколько раз выполнится следующий цикл и почему:
+1
+2
+3
+4
+5
+6	int i = 5;
+while(i > 0)
+{
+    i *= 3;
+    i *= -1;
+}
+Ответ: Цикл выполнится ровно один раз, так как после первой итерации i становится отрицательным, и условие i > 0 больше не выполняется.
+
+Вопрос 2
+Дан следующий цикл:
+1
+2
+3
+4
+5
+6
+7
+8
+9	int j = 2;
+for (int i = 1; i < 100; i = i + 2)
+{
+    j = j - 1;
+    while(j < 15)
+    {
+        j = j + 5;
+    }
+}
+Сколько раз в этом цикле будет выполняться строка j = j - 1;
+Ответ: Строка j = j -1 выполняется в каждой итерации for, то есть 50 раз.
+
+Вопрос 3
+Что будет выведено на консоль в результате выполнения следующего цикла:
+1
+2
+3
+4
+5
+6
+7
+8
+9	for(int i = 1; i < 3; i++)
+{
+    switch (i)
+    {
+        default:
+            Console.WriteLine($"i = {i++}");
+            break;
+    }
+}
+Ответ: I = 1. В первой итерации i = 1, выполняется Строка j = j -1 выполняется в каждой итерации for, то есть 50 раз. Console.WriteLine($"i = {i++}");, выводится i = 1, затем i увеличивается до 2. После завершения итерации for снова увеличивает i, и оно становится 3, из-за чего цикл завершается.
+
+Практические
+1
+using System;
+
+class Program
+{
+static void Main()
+{
+Console.Write("Введите сумму вклада: ");
+decimal deposit = Convert.ToDecimal(Console.ReadLine());
+
+Console.Write("Введите количество месяцев: ");
+int months = Convert.ToInt32(Console.ReadLine());
+
+decimal precentt = 0.07m;
+
+for (int i = 0; i < months; i++)
+{
+deposit += deposit * preccentt;
+}
+
+Console.WriteLine($"Конечная сумма вклада: {deposit}");
+}
+}
+
+2
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите сумму вклада: ");
+        decimal deposit = Convert.ToDecimal(Console.ReadLine());
+
+        Console.Write("Введите количество месяцев: ");
+        int months = Convert.ToInt32(Console.ReadLine());
+
+        decimal precentos = 0.07m;
+
+        int i = 0;
+
+        while (i < months)
+        {
+            deposit += deposit * precentos;
+            i++; 
+        }
+
+        Console.WriteLine($"Конечная сумма вклада: {deposit}");
+    }
+}
+
+3
+using System;
+
+class Program
+{
+    static void Main()
+    {
+       
+        for (int i = 1; i <= 9; i++)
+        {
+            for (int j = 1; j <= 9; j++) 
+            {
+                Console.Write($"{i * j,4}");
+            }
+            Console.WriteLine(); 
+        }
+    }
+}
+
+4
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            Console.Write("Введите первое число (от 0 до 10): ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Введите второе число (от 0 до 10!!!): ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+
+            if (num1 >= 0 && num1 <= 10 && num2 >= 0 && num2 <= 10)
+            {
+
+                Console.WriteLine($"Результат умножения: {num1 * num2}");
+                break;
+            }
+            else
+            {
+
+                Console.WriteLine("Ваш айкью в минусе. Снова");
+            }
+        }
+    }
+}
+
